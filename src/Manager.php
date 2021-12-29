@@ -70,14 +70,14 @@ class Manager
     /**
      * Serializer.
      *
-     * @var SerializerAbstract
+     * @var ?SerializerAbstract
      */
-    protected SerializerAbstract $serializer;
+    protected ?SerializerAbstract $serializer = null;
 
     /**
      * Factory used to create new configured scopes.
      *
-     * @var ScopeFactoryInterface
+     * @var ScopeFactoryInterface|ScopeFactory
      */
     private ScopeFactoryInterface|ScopeFactory $scopeFactory;
 
@@ -263,11 +263,11 @@ class Manager
     /**
      * Get fieldset params for the specified type.
      *
-     * @param string $type
+     * @param null|string $type
      *
      * @return \League\Fractal\ParamBag|null
      */
-    #[Pure] public function getFieldset(string $type): ?ParamBag
+    #[Pure] public function getFieldset(?string $type): ?ParamBag
     {
         return !isset($this->requestedFieldsets[$type]) ?
             null :
