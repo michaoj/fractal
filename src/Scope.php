@@ -534,9 +534,9 @@ class Scope implements \JsonSerializable
      *
      * @internal
      *
-     * @return string
+     * @return string|null
      */
-    protected function getResourceType(): string
+    protected function getResourceType(): ?string
     {
         return $this->resource->getResourceKey();
     }
